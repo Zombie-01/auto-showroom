@@ -16,7 +16,7 @@ await build({
   outfile: `${fn}/index.mjs`,
   bundle: true,
   platform: 'node',
-  target: 'node20',
+  target: 'node22',
   format: 'esm',
   external: ['@electric-sql/pglite', 'drizzle-orm/pglite', 'drizzle-orm/pglite/*', 'pg-native'],
   banner: { js: "import { createRequire as __cr } from 'node:module'; const require = __cr(import.meta.url);" },
@@ -24,7 +24,7 @@ await build({
 cpSync('apps/api/drizzle', `${fn}/drizzle`, { recursive: true });
 writeFileSync(`${fn}/package.json`, JSON.stringify({ type: 'module' }));
 writeFileSync(`${fn}/.vc-config.json`, JSON.stringify({
-  runtime: 'nodejs20.x', handler: 'index.mjs', launcherType: 'Nodejs', shouldAddHelpers: false, maxDuration: 30, regions: ['sin1'],
+  runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', shouldAddHelpers: false, maxDuration: 30, regions: ['sin1'],
 }, null, 2));
 
 writeFileSync(`${out}/config.json`, JSON.stringify({
