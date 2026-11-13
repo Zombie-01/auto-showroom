@@ -13,3 +13,5 @@ apps/web/public/assets/vehicles/**/vehicle.manifest.json
 .vercel
 .neon
 .env.local
+.env*
+!.env.example
