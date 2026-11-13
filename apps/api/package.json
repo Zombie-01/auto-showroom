@@ -1,0 +1,35 @@
+{
+  "name": "@showroom/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:seed": "tsx src/db/seed-cli.ts"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.0",
+    "@showroom/shared": "*",
+    "cors": "^2.8.5",
+    "drizzle-orm": "^0.45.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^20.19.0",
+    "@types/pg": "^8.15.0",
+    "@types/supertest": "^6.0.3",
+    "drizzle-kit": "^0.31.0",
+    "supertest": "^7.1.0",
+    "vitest": "^4.1.12"
+  }
+}

@@ -1,0 +1,1812 @@
+{
+  "schemaVersion": 1,
+  "vehicleSlug": "land-cruiser-300",
+  "assetStatus": "demonstration",
+  "disclaimer": "Үзүүлэн геометр. Интерактив системийг харуулах зорилгоор энгийн хэлбэрүүдээр бүтээсэн орлуулга — жинхэнэ машины загвар биш бөгөөд эд ангиуд нь механик талаасаа үнэн зөв биш.",
+  "units": "meters",
+  "assets": {
+    "exterior": {
+      "url": "exterior/demo-exterior.glb",
+      "draco": true,
+      "ktx2": false,
+      "bytes": 60840
+    },
+    "engine": {
+      "url": "engine/demo-engine.glb",
+      "draco": true,
+      "ktx2": false,
+      "bytes": 27540
+    },
+    "transmission": {
+      "url": "transmission/demo-transmission.glb",
+      "draco": true,
+      "ktx2": false,
+      "bytes": 17016
+    },
+    "suspension": {
+      "url": "suspension/demo-suspension.glb",
+      "draco": true,
+      "ktx2": false,
+      "bytes": 37844
+    },
+    "interior": {
+      "url": "interior/demo-interior.glb",
+      "draco": true,
+      "ktx2": false,
+      "bytes": 29660
+    }
+  },
+  "materialGroups": [
+    {
+      "id": "body",
+      "label": "Их биеийн өнгө",
+      "materials": [
+        "mat_body"
+      ],
+      "surface": "exterior",
+      "default": {
+        "hex": "#d9d6cf",
+        "metalness": 0.55,
+        "roughness": 0.32,
+        "clearcoat": 1
+      }
+    },
+    {
+      "id": "roof",
+      "label": "Дээврийн өнгө",
+      "materials": [
+        "mat_roof"
+      ],
+      "surface": "exterior",
+      "default": {
+        "hex": "#d9d6cf",
+        "metalness": 0.55,
+        "roughness": 0.32,
+        "clearcoat": 1
+      }
+    },
+    {
+      "id": "wheels",
+      "label": "Обудны өнгө",
+      "materials": [
+        "mat_rim"
+      ],
+      "surface": "exterior",
+      "default": {
+        "hex": "#a8abb0",
+        "metalness": 0.9,
+        "roughness": 0.28,
+        "clearcoat": 0
+      }
+    },
+    {
+      "id": "exterior_trim",
+      "label": "Гадна чимэглэл",
+      "materials": [
+        "mat_trim"
+      ],
+      "surface": "exterior",
+      "default": {
+        "hex": "#1c1d1f",
+        "metalness": 0.2,
+        "roughness": 0.55,
+        "clearcoat": 0
+      }
+    },
+    {
+      "id": "seats",
+      "label": "Суудлын өнгө",
+      "materials": [
+        "mat_seat"
+      ],
+      "surface": "interior",
+      "default": {
+        "hex": "#3a2c22",
+        "metalness": 0,
+        "roughness": 0.62,
+        "clearcoat": 0
+      }
+    },
+    {
+      "id": "interior_material",
+      "label": "Дотор засал",
+      "materials": [
+        "mat_interior"
+      ],
+      "surface": "interior",
+      "default": {
+        "hex": "#26262a",
+        "metalness": 0.05,
+        "roughness": 0.7,
+        "clearcoat": 0
+      }
+    },
+    {
+      "id": "dashboard_finish",
+      "label": "Хянах самбарын өнгөлгөө",
+      "materials": [
+        "mat_dash_finish"
+      ],
+      "surface": "interior",
+      "default": {
+        "hex": "#5a4632",
+        "metalness": 0.1,
+        "roughness": 0.4,
+        "clearcoat": 0.3
+      }
+    },
+    {
+      "id": "interior_trim",
+      "label": "Дотор чимэглэл",
+      "materials": [
+        "mat_interior_trim"
+      ],
+      "surface": "interior",
+      "default": {
+        "hex": "#8d8f93",
+        "metalness": 0.85,
+        "roughness": 0.3,
+        "clearcoat": 0
+      }
+    }
+  ],
+  "switches": [
+    {
+      "id": "wheel_design",
+      "label": "Обудны загвар",
+      "kind": "exclusive",
+      "options": [
+        {
+          "id": "design_a",
+          "label": "6 хигээстэй (демо)",
+          "nodes": [
+            "rim_a_FL",
+            "rim_a_FR",
+            "rim_a_RL",
+            "rim_a_RR"
+          ],
+          "availability": "demonstration"
+        },
+        {
+          "id": "design_b",
+          "label": "12 хигээстэй (демо)",
+          "nodes": [
+            "rim_b_FL",
+            "rim_b_FR",
+            "rim_b_RL",
+            "rim_b_RR"
+          ],
+          "availability": "demonstration"
+        }
+      ],
+      "default": [
+        "design_a"
+      ]
+    },
+    {
+      "id": "accessories",
+      "label": "Гадна дагалдах хэрэгсэл",
+      "kind": "toggle",
+      "options": [
+        {
+          "id": "roof_rack",
+          "label": "Дээврийн тавиур",
+          "nodes": [
+            "acc_roof_rack"
+          ],
+          "availability": "demonstration"
+        },
+        {
+          "id": "side_steps",
+          "label": "Хажуугийн гишгүүр",
+          "nodes": [
+            "acc_side_steps"
+          ],
+          "availability": "demonstration"
+        }
+      ],
+      "default": []
+    }
+  ],
+  "components": [
+    {
+      "id": "body_shell",
+      "system": "exterior",
+      "nodes": [
+        "body_shell"
+      ]
+    },
+    {
+      "id": "front_bumper",
+      "system": "exterior",
+      "nodes": [
+        "front_bumper"
+      ],
+      "explode": {
+        "offset": [
+          0.95,
+          -0.05,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": false
+      }
+    },
+    {
+      "id": "grille",
+      "system": "exterior",
+      "nodes": [
+        "grille"
+      ],
+      "explode": {
+        "offset": [
+          0.62,
+          0.14,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "headlights",
+      "system": "exterior",
+      "nodes": [
+        "headlight_L",
+        "headlight_R"
+      ],
+      "explode": {
+        "offset": [
+          0.5,
+          0.06,
+          0.32
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": true
+      }
+    },
+    {
+      "id": "hood",
+      "system": "exterior",
+      "nodes": [
+        "hood"
+      ],
+      "explode": {
+        "offset": [
+          0.12,
+          0.9,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0.32
+        ],
+        "delay": 0.05,
+        "mirror": false
+      }
+    },
+    {
+      "id": "doors",
+      "system": "exterior",
+      "nodes": [
+        "door_FL",
+        "door_FR",
+        "door_RL",
+        "door_RR"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.04,
+          0.78
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": true
+      }
+    },
+    {
+      "id": "mirrors",
+      "system": "exterior",
+      "nodes": [
+        "mirror_L",
+        "mirror_R"
+      ],
+      "explode": {
+        "offset": [
+          0.05,
+          0.16,
+          1.05
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.25,
+        "mirror": true
+      }
+    },
+    {
+      "id": "wheels",
+      "system": "exterior",
+      "nodes": [
+        "wheel_FL",
+        "wheel_FR",
+        "wheel_RL",
+        "wheel_RR"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0,
+          0.95
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.3,
+        "mirror": true
+      }
+    },
+    {
+      "id": "windows",
+      "system": "exterior",
+      "nodes": [
+        "windows",
+        "pillar_a_L",
+        "pillar_a_R"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.5,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.35,
+        "mirror": false
+      }
+    },
+    {
+      "id": "roof",
+      "system": "exterior",
+      "nodes": [
+        "roof",
+        "acc_roof_rack"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          1,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.4,
+        "mirror": false
+      }
+    },
+    {
+      "id": "rear_bumper",
+      "system": "exterior",
+      "nodes": [
+        "rear_bumper"
+      ],
+      "explode": {
+        "offset": [
+          -0.95,
+          -0.05,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": false
+      }
+    },
+    {
+      "id": "taillights",
+      "system": "exterior",
+      "nodes": [
+        "taillight_L",
+        "taillight_R"
+      ],
+      "explode": {
+        "offset": [
+          -0.5,
+          0.06,
+          0.26
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": true
+      }
+    },
+    {
+      "id": "side_steps",
+      "system": "exterior",
+      "nodes": [
+        "acc_side_steps"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.22,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.3,
+        "mirror": false
+      }
+    },
+    {
+      "id": "engine_block",
+      "system": "engine",
+      "nodes": [
+        "engine_block"
+      ]
+    },
+    {
+      "id": "cylinder_heads",
+      "system": "engine",
+      "nodes": [
+        "cylinder_head_L",
+        "cylinder_head_R"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.34,
+          0.26
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": true
+      }
+    },
+    {
+      "id": "pistons",
+      "system": "engine",
+      "nodes": [
+        "pistons"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.62,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": false
+      }
+    },
+    {
+      "id": "crankshaft",
+      "system": "engine",
+      "nodes": [
+        "crankshaft"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.45,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "turbochargers",
+      "system": "engine",
+      "nodes": [
+        "turbo_L",
+        "turbo_R"
+      ],
+      "explode": {
+        "offset": [
+          -0.1,
+          0.1,
+          0.42
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": true
+      }
+    },
+    {
+      "id": "intake_system",
+      "system": "engine",
+      "nodes": [
+        "intake_system"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.78,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.3,
+        "mirror": false
+      }
+    },
+    {
+      "id": "cooling_system",
+      "system": "engine",
+      "nodes": [
+        "cooling_system"
+      ],
+      "explode": {
+        "offset": [
+          0.55,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": false
+      }
+    },
+    {
+      "id": "exhaust_system",
+      "system": "engine",
+      "nodes": [
+        "exhaust_system"
+      ],
+      "explode": {
+        "offset": [
+          -0.15,
+          -0.28,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": false
+      }
+    },
+    {
+      "id": "alternator",
+      "system": "engine",
+      "nodes": [
+        "alternator"
+      ],
+      "explode": {
+        "offset": [
+          0.25,
+          0.3,
+          0.38
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.25,
+        "mirror": false
+      }
+    },
+    {
+      "id": "torque_converter",
+      "system": "transmission",
+      "nodes": [
+        "torque_converter"
+      ],
+      "explode": {
+        "offset": [
+          0.28,
+          0.26,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": false
+      }
+    },
+    {
+      "id": "gearbox",
+      "system": "transmission",
+      "nodes": [
+        "gearbox"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.36,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.05,
+        "mirror": false
+      }
+    },
+    {
+      "id": "transfer_case",
+      "system": "transmission",
+      "nodes": [
+        "transfer_case"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.18,
+          0.48
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "driveshaft",
+      "system": "transmission",
+      "nodes": [
+        "driveshaft"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.34,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": false
+      }
+    },
+    {
+      "id": "differentials",
+      "system": "transmission",
+      "nodes": [
+        "differentials"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.32,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": false
+      }
+    },
+    {
+      "id": "axles",
+      "system": "transmission",
+      "nodes": [
+        "axles"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.24,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.25,
+        "mirror": false
+      }
+    },
+    {
+      "id": "frame",
+      "system": "suspension",
+      "nodes": [
+        "frame"
+      ]
+    },
+    {
+      "id": "front_suspension",
+      "system": "suspension",
+      "nodes": [
+        "front_suspension"
+      ],
+      "explode": {
+        "offset": [
+          0.45,
+          0.05,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "rear_suspension",
+      "system": "suspension",
+      "nodes": [
+        "rear_suspension"
+      ],
+      "explode": {
+        "offset": [
+          -0.45,
+          0.05,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "control_arms",
+      "system": "suspension",
+      "nodes": [
+        "control_arms"
+      ],
+      "explode": {
+        "offset": [
+          0.3,
+          0.22,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": false
+      }
+    },
+    {
+      "id": "springs",
+      "system": "suspension",
+      "nodes": [
+        "springs"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.5,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": false
+      }
+    },
+    {
+      "id": "shock_absorbers",
+      "system": "suspension",
+      "nodes": [
+        "shock_absorbers"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.85,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.3,
+        "mirror": false
+      }
+    },
+    {
+      "id": "braking_system",
+      "system": "suspension",
+      "nodes": [
+        "brake_FL",
+        "brake_FR",
+        "brake_RL",
+        "brake_RR"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0,
+          0.55
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.05,
+        "mirror": true
+      }
+    },
+    {
+      "id": "steering",
+      "system": "suspension",
+      "nodes": [
+        "steering"
+      ],
+      "explode": {
+        "offset": [
+          0.4,
+          0.16,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "dashboard",
+      "system": "interior",
+      "nodes": [
+        "dashboard"
+      ],
+      "explode": {
+        "offset": [
+          0.36,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0,
+        "mirror": false
+      }
+    },
+    {
+      "id": "instrument_cluster",
+      "system": "interior",
+      "nodes": [
+        "instrument_cluster"
+      ],
+      "explode": {
+        "offset": [
+          0.22,
+          0.18,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "infotainment",
+      "system": "interior",
+      "nodes": [
+        "infotainment"
+      ],
+      "explode": {
+        "offset": [
+          0.28,
+          0.32,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": false
+      }
+    },
+    {
+      "id": "climate_control",
+      "system": "interior",
+      "nodes": [
+        "climate_control"
+      ],
+      "explode": {
+        "offset": [
+          0.42,
+          -0.12,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.15,
+        "mirror": false
+      }
+    },
+    {
+      "id": "steering_wheel",
+      "system": "interior",
+      "nodes": [
+        "steering_wheel"
+      ],
+      "explode": {
+        "offset": [
+          -0.32,
+          0.12,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": false
+      }
+    },
+    {
+      "id": "safety_systems",
+      "system": "interior",
+      "nodes": [
+        "safety_systems"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0.28,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.25,
+        "mirror": false
+      }
+    },
+    {
+      "id": "seats",
+      "system": "interior",
+      "nodes": [
+        "seat_FL",
+        "seat_FR",
+        "seat_R"
+      ],
+      "explode": {
+        "offset": [
+          -0.2,
+          0.14,
+          0.22
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.1,
+        "mirror": true
+      }
+    },
+    {
+      "id": "center_console",
+      "system": "interior",
+      "nodes": [
+        "center_console"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.16,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.05,
+        "mirror": false
+      }
+    },
+    {
+      "id": "door_panels",
+      "system": "interior",
+      "nodes": [
+        "door_panel_FL",
+        "door_panel_FR",
+        "door_panel_RL",
+        "door_panel_RR"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          0,
+          0.32
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.2,
+        "mirror": true
+      }
+    },
+    {
+      "id": "speakers",
+      "system": "interior",
+      "nodes": [
+        "speaker_FL",
+        "speaker_FR",
+        "speaker_RL",
+        "speaker_RR"
+      ],
+      "explode": {
+        "offset": [
+          0,
+          -0.1,
+          0.42
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "delay": 0.3,
+        "mirror": true
+      }
+    }
+  ],
+  "story": {
+    "sections": [
+      {
+        "id": "exterior",
+        "index": "01",
+        "title": "Хэлбэр бүрт илэрх хүч",
+        "kicker": "Гадна тал",
+        "body": "Их биеийг тойрон харж, хавтан, гэрэл, дугуй бүрийг сонгон юу болох, ямар үүрэгтэйг нь мэдээрэй.",
+        "interactiveSystems": [
+          "exterior"
+        ],
+        "requires": [
+          "exterior"
+        ]
+      },
+      {
+        "id": "exploded",
+        "index": "02",
+        "title": "Эд анги бүрээр нь",
+        "kicker": "Задалсан",
+        "body": "Доош гүйлгэхэд их бие үндсэн угсралтууд болон задарна. Буцааж гүйлгэхэд дахин угсрагдана.",
+        "interactiveSystems": [
+          "exterior"
+        ],
+        "requires": [
+          "exterior"
+        ]
+      },
+      {
+        "id": "engine",
+        "index": "03",
+        "title": "Хүчний эх үүсвэр — задлаад",
+        "kicker": "Хөдөлгүүр",
+        "body": "Блок, толгой, поршень, тахир гол, турбо, агаар оруулах, яндан — тус бүрийг сонгож үзэх боломжтой.",
+        "interactiveSystems": [
+          "engine"
+        ],
+        "requires": [
+          "engine"
+        ]
+      },
+      {
+        "id": "transmission",
+        "index": "04",
+        "title": "Тахир голоос дугуй хүртэл",
+        "kicker": "Хүч дамжуулалт",
+        "body": "Момент хувиргагч, хурдны хайрцаг, хуваарилах хайрцаг, кардан, дифференциалаар дамжих хүчийг дагаарай.",
+        "interactiveSystems": [
+          "transmission"
+        ],
+        "requires": [
+          "transmission",
+          "engine"
+        ]
+      },
+      {
+        "id": "suspension",
+        "index": "05",
+        "title": "Рам, түдгэлзүүр, тоормос",
+        "kicker": "Явах эд анги",
+        "body": "Рам, түдгэлзүүрийн бүтэц, пүрш, жолооны механизм, тоормосыг нэг бүрчлэн судлаарай.",
+        "interactiveSystems": [
+          "suspension"
+        ],
+        "requires": [
+          "suspension"
+        ]
+      },
+      {
+        "id": "interior",
+        "index": "06",
+        "title": "Салон руу орж үзээрэй",
+        "kicker": "Салон",
+        "body": "Хянах самбар, дэлгэц, жолооны хүрд, суудал — тус бүрийг сонгож дэлгэрэнгүйг харна уу.",
+        "interactiveSystems": [
+          "interior"
+        ],
+        "requires": [
+          "interior"
+        ]
+      },
+      {
+        "id": "final",
+        "index": "07",
+        "title": "Өөрийнхөөрөө тохируулаарай",
+        "kicker": "Бүрэн",
+        "body": "Бүх систем байрандаа. Өнгө, обуд, дотор заслаа сонгохоор тохируулагч руу орно уу.",
+        "interactiveSystems": [
+          "exterior"
+        ],
+        "requires": [
+          "exterior"
+        ]
+      }
+    ],
+    "keyframes": [
+      {
+        "at": 0,
+        "camera": {
+          "position": [
+            7.2,
+            2,
+            6.4
+          ],
+          "target": [
+            0,
+            0.85,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 0.5,
+        "camera": {
+          "position": [
+            -3.2,
+            1.5,
+            7.4
+          ],
+          "target": [
+            0,
+            0.9,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 0.92,
+        "camera": {
+          "position": [
+            5.4,
+            1.2,
+            -3.8
+          ],
+          "target": [
+            1.1,
+            0.85,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 1.15,
+        "camera": {
+          "position": [
+            8.6,
+            4.3,
+            7.6
+          ],
+          "target": [
+            0,
+            0.9,
+            0
+          ],
+          "fov": 34
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 1.85,
+        "camera": {
+          "position": [
+            8,
+            3.9,
+            8.4
+          ],
+          "target": [
+            0,
+            0.95,
+            0
+          ],
+          "fov": 34
+        },
+        "explode": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 2.12,
+        "camera": {
+          "position": [
+            4.9,
+            2.3,
+            3.6
+          ],
+          "target": [
+            1.8,
+            0.8,
+            0
+          ],
+          "fov": 30
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 1,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 2.85,
+        "camera": {
+          "position": [
+            4.4,
+            2.7,
+            3.2
+          ],
+          "target": [
+            1.8,
+            0.95,
+            0
+          ],
+          "fov": 30
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 1,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 1,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 3.12,
+        "camera": {
+          "position": [
+            1.4,
+            1,
+            4.6
+          ],
+          "target": [
+            0.6,
+            0.55,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 0.35,
+          "transmission": 1,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 3.85,
+        "camera": {
+          "position": [
+            0.6,
+            1.4,
+            4.4
+          ],
+          "target": [
+            0.4,
+            0.55,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 1,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 0.25,
+          "transmission": 1,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 4.12,
+        "camera": {
+          "position": [
+            4.6,
+            1.1,
+            3.8
+          ],
+          "target": [
+            1.1,
+            0.5,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 0.2,
+          "transmission": 0.3,
+          "suspension": 1,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 4.85,
+        "camera": {
+          "position": [
+            5,
+            1.8,
+            4.6
+          ],
+          "target": [
+            0.7,
+            0.55,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 1,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 0.15,
+          "transmission": 0.2,
+          "suspension": 1,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 5.15,
+        "camera": {
+          "position": [
+            -0.5,
+            1.55,
+            0.12
+          ],
+          "target": [
+            0.95,
+            1.06,
+            -0.22
+          ],
+          "fov": 58
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 1
+        },
+        "yaw": 0
+      },
+      {
+        "at": 5.5,
+        "camera": {
+          "position": [
+            -0.3,
+            1.5,
+            -0.06
+          ],
+          "target": [
+            0.95,
+            1.1,
+            0.12
+          ],
+          "fov": 58
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 0.1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 1
+        },
+        "yaw": 0
+      },
+      {
+        "at": 5.88,
+        "camera": {
+          "position": [
+            3.4,
+            3.1,
+            3.6
+          ],
+          "target": [
+            0.1,
+            1,
+            0
+          ],
+          "fov": 34
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 1
+        },
+        "opacity": {
+          "exterior": 0.04,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 1
+        },
+        "yaw": 0
+      },
+      {
+        "at": 6.2,
+        "camera": {
+          "position": [
+            7.6,
+            1.7,
+            -5.4
+          ],
+          "target": [
+            0,
+            0.85,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      },
+      {
+        "at": 7,
+        "camera": {
+          "position": [
+            6.8,
+            2.1,
+            6.1
+          ],
+          "target": [
+            0,
+            0.85,
+            0
+          ],
+          "fov": 32
+        },
+        "explode": {
+          "exterior": 0,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "opacity": {
+          "exterior": 1,
+          "engine": 0,
+          "transmission": 0,
+          "suspension": 0,
+          "interior": 0
+        },
+        "yaw": 0
+      }
+    ]
+  },
+  "hero": {
+    "position": [
+      7.4,
+      1.25,
+      6.6
+    ],
+    "target": [
+      0,
+      0.05,
+      0
+    ],
+    "fov": 30
+  },
+  "configurator": {
+    "position": [
+      6.2,
+      1.9,
+      6
+    ],
+    "target": [
+      0,
+      0.8,
+      0
+    ],
+    "fov": 30
+  },
+  "cameras": {
+    "interior": {
+      "position": [
+        -0.4,
+        1.52,
+        0.02
+      ],
+      "target": [
+        0.9,
+        1.08,
+        -0.1
+      ],
+      "fov": 60
+    }
+  },
+  "cabin": {
+    "min": [
+      -2.3,
+      0.55,
+      -0.9
+    ],
+    "max": [
+      1.2,
+      1.88,
+      0.9
+    ]
+  },
+  "credits": [
+    "Demonstration assets generated by scripts/generate-demo-assets.ts (MIT, this repository)."
+  ]
+}

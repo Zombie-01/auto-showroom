@@ -1,0 +1,12 @@
+node_modules
+dist
+.data
+*.log
+.env
+test-results
+apps/web/public/assets/vehicles/**/*.raw.glb
+apps/api/.data
+incoming
+# Third-party evaluation models are not redistributable — never commit them.
+apps/web/public/assets/vehicles/**/eval-*.glb
+apps/web/public/assets/vehicles/**/vehicle.manifest.json

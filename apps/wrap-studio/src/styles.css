@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0b;
+  --fg: #ecebe6;
+  --muted: #8f8e89;
+  --line: #2a2a2d;
+  --accent: #c9a46a;
+  color-scheme: dark;
+  font-family: 'Inter Variable', system-ui, sans-serif;
+}
+body { margin: 0; background: var(--bg); }
+
+.btn-primary { @apply rounded-md bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-black transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40; }
+.btn-ghost { @apply rounded-md border border-[var(--line)] px-3 py-2 text-sm transition hover:border-[var(--muted)]; }
+.field { @apply rounded-md border border-[var(--line)] bg-[var(--bg)] px-3 py-2 text-sm text-[var(--fg)] outline-none focus:border-[var(--accent)]; }
+.chip { @apply rounded-full border border-[var(--line)] px-3 py-1 transition hover:border-[var(--muted)] disabled:opacity-40; }
+.chip-on { @apply border-[var(--accent)] text-[var(--accent)]; }
+kbd { @apply rounded border border-[var(--line)] px-1 text-xs; }

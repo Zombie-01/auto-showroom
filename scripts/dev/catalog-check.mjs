@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH });
+const page = await browser.newPage();
+await page.goto(`${process.argv[2]}/vehicles`);
+await page.getByRole('link', { name: /Toyota Land Cruiser 300 — дэлгэрэнгүй/ }).waitFor({ timeout: 30000 });
+await page.getByRole('tab', { name: 'BYD' }).click();
+await page.getByRole('link', { name: /BYD Song Plus DM-i — дэлгэрэнгүй/ }).waitFor({ timeout: 30000 });
+await page.getByRole('tab', { name: 'Бүгд' }).click();
+await page.waitForTimeout(1500);
+console.log('catalog OK, cards:', await page.getByRole('link', { name: /— дэлгэрэнгүй/ }).count());
+await browser.close();

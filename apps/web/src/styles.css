@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "@fontsource-variable/montserrat";
+@import "@fontsource-variable/inter";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+/*
+ * Design tokens. One accent colour per tenant (set at runtime from dealer branding) used only for
+ * primary actions, focus and active state. Everything else is neutral so the vehicle leads.
+ */
+@theme {
+  --color-ink: #0a0a0b;
+  --color-ink-2: #111113;
+  --color-ink-3: #18181b;
+  --color-line: rgb(255 255 255 / 0.09);
+  --color-line-strong: rgb(255 255 255 / 0.18);
+  --color-fg: #ecebe7;
+  --color-fg-2: #b9b8b2;
+  --color-mute: #8a8984;
+  --color-accent: #c8a46a;
+  --color-ok: #8fbf8f;
+  --color-warn: #d9b26a;
+  --color-danger: #e0796b;
+
+  --font-display: "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@layer base {
+  html { color-scheme: dark; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-ink text-fg font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--color-accent); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  button, [role="button"] { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+}
+
+/* Display type: expanded width, tight leading. */
+@utility display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+@utility display-wide { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.03em; line-height: 0.95; }
+@utility kicker { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-mute); }
+@utility tech { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.02em; }
+@utility hairline { border-color: var(--color-line); }
+@utility btn { @apply inline-flex items-center justify-center gap-2 px-5 h-11 text-[0.8125rem] font-medium tracking-wide transition-[background,color,border-color,opacity] duration-300 select-none disabled:opacity-40; }
+@utility btn-primary { @apply btn bg-accent text-ink hover:brightness-110; }
+@utility btn-ghost { @apply btn border border-line-strong text-fg hover:border-fg/60 hover:bg-white/[0.03]; }
+@utility btn-quiet { @apply btn px-3 text-fg-2 hover:text-fg; }
+@utility panel { @apply bg-ink-2/95 border border-line; }
+@utility field { @apply w-full h-11 bg-transparent border border-line-strong px-3 text-sm text-fg placeholder:text-mute focus:border-accent outline-none transition-colors; }
+@utility label { @apply block text-[0.6875rem] font-mono uppercase tracking-[0.14em] text-mute mb-1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+.scroll-cue { animation: cue 2.2s var(--ease-in-out-quart) infinite; }
+@keyframes cue { 0% { transform: translateY(-100%); } 60%, 100% { transform: translateY(100%); } }
+
+.fade-up { animation: fade-up 0.9s var(--ease-out-expo) both; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.loading-seg { animation: seg 1.4s var(--ease-in-out-quart) infinite; }
+@keyframes seg { from { transform: translateX(-100%); } to { transform: translateX(300%); } }

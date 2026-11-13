@@ -1,0 +1,36 @@
+{
+  "name": "auto-showroom",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev -w @showroom/api\" \"npm run dev -w @showroom/web\"",
+    "build": "npm run build -w @showroom/web && npm run build -w @showroom/api",
+    "test": "npm run test -w @showroom/shared && npm run test -w @showroom/api && npm run test -w @showroom/web",
+    "typecheck": "tsc -p packages/shared && tsc -p apps/api --noEmit && tsc -p apps/web --noEmit",
+    "assets:demo": "tsx scripts/generate-demo-assets.ts",
+    "db:generate": "npm run db:generate -w @showroom/api",
+    "db:seed": "npm run db:seed -w @showroom/api",
+    "e2e": "node scripts/browser-check.mjs",
+    "assets:validate": "tsx scripts/validate-assets.ts",
+    "dev:wrap": "npm run dev -w @showroom/wrap-studio"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.2.0",
+    "@gltf-transform/extensions": "^4.2.0",
+    "@gltf-transform/functions": "^4.2.0",
+    "@types/node": "^20.19.43",
+    "@types/three": "^0.180.0",
+    "concurrently": "^9.2.0",
+    "draco3dgltf": "^1.5.7",
+    "meshoptimizer": "^0.22.0",
+    "playwright": "^1.55.0",
+    "three": "^0.180.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.2",
+    "vitest": "^4.1.12"
+  }
+}
