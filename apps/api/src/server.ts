@@ -1,3 +1,4 @@
+import './env';
 import { mkdirSync } from 'node:fs';
 import { createApp } from './app';
 import { openDb } from './db/client';

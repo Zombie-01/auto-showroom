@@ -1,3 +1,4 @@
+import '../env';
 import { openDb } from './client';
 import { DEMO_PASSWORD, seed } from './seed';
 

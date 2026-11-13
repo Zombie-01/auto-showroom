@@ -11,3 +11,5 @@ incoming
 apps/web/public/assets/vehicles/**/eval-*.glb
 apps/web/public/assets/vehicles/**/vehicle.manifest.json
 .vercel
+.neon
+.env.local
