@@ -34,6 +34,8 @@ writeFileSync(`${out}/config.json`, JSON.stringify({
     { src: '^/assets/(.*)$', headers: { 'cache-control': 'public, max-age=31536000, immutable' }, continue: true },
     { src: '^/api(/.*)?$', dest: '/api' },
     { handle: 'filesystem' },
+    // Missing static files (3D assets, decoders, hashed bundles) are real 404s, never the SPA page.
+    { src: '^/(assets|draco|basis)/.*$', status: 404, dest: '/404-not-found' },
     { src: '/(.*)', dest: '/index.html', headers: { 'cache-control': 'no-cache' } },
   ],
 }, null, 2));

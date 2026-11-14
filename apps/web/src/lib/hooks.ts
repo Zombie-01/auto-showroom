@@ -29,8 +29,9 @@ export function loadManifest(url: string): Promise<VehicleManifest> {
   let p = manifestCache.get(url);
   if (!p) {
     p = fetch(url).then(async (r) => {
-      if (!r.ok) throw new Error(`3D manifest not found (${r.status})`);
-      const parsed = VehicleManifest.safeParse(await r.json());
+      // A missing file must not be mistaken for JSON (e.g. an HTML fallback page from the host).
+      if (!r.ok || !(r.headers.get('content-type') ?? '').includes('json')) throw new Error('Энэ машины 3D загвар одоогоор байршуулагдаагүй байна.');
+      const parsed = VehicleManifest.safeParse(await r.json().catch(() => null));
       if (!parsed.success) throw new Error('3D manifest is invalid: ' + parsed.error.issues.slice(0, 3).map((i) => `${i.path.join('.')} ${i.message}`).join('; '));
       const problems = lintManifest(parsed.data);
       if (problems.length) throw new Error('3D manifest has errors: ' + problems.slice(0, 3).join('; '));
